@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="攝影師／導演 李室勳 Li Shih Hsun 作品集：廣告、MV、電影、節目、實境、形象。">
+<title>Li Shih Hsun 李室勳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: letterboxed 2.39:1 hero, then a single column of "reels" — works listed like slate entries. Dark-first, single cinematic look. */
+:root{
+  --ink:#0d1413;          /* graded shadow, teal bias */
+  --ink-2:#141e1c;
+  --line:#2a3633;
+  --paper:#e9e4d8;        /* print stock */
+  --muted:#93a09b;
+  --tungsten:#d9a441;     /* 3200K practical */
+  --tungsten-dim:#7a5d27;
+  --f-latin:"Bodoni Moda", "Didot", Georgia, serif;
+  --f-cjk:"Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --f-body:"Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-size:16px;line-height:1.75;margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+:focus-visible{outline:2px solid var(--tungsten);outline-offset:3px}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{font-family:var(--f-latin);font-size:18px;letter-spacing:.02em;text-decoration:none}
+nav ul{display:flex;gap:clamp(14px,3vw,32px);list-style:none;margin:0;padding:0;font-size:14px}
+nav ul a{text-decoration:none;color:var(--muted);transition:color .2s}
+nav ul a:hover{color:var(--tungsten)}
+
+/* hero */
+.hero{padding-block:clamp(40px,8vw,88px) clamp(32px,6vw,64px)}
+.frame{position:relative;aspect-ratio:2.39/1;max-width:100%;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,4vw,48px);background:
+  radial-gradient(120% 90% at 78% 20%,rgba(217,164,65,.16),transparent 55%),
+  linear-gradient(180deg,var(--ink-2),var(--ink))}
+.frame::before,.frame::after{content:"";position:absolute;width:22px;height:22px;border:solid var(--tungsten)}
+.frame::before{top:10px;left:10px;border-width:1px 0 0 1px}
+.frame::after{bottom:10px;right:10px;border-width:0 1px 1px 0}
+.tc{position:absolute;top:14px;right:18px;font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.08em}
+.tc b{color:#c94a3a;font-weight:500}
+.hero .cjk{font-family:var(--f-cjk);font-size:clamp(15px,2vw,20px);color:var(--muted);letter-spacing:.2em;margin:0 0 4px}
+.hero h1{font-family:var(--f-latin);font-weight:400;font-size:clamp(40px,9vw,112px);line-height:.95;margin:0;letter-spacing:-.01em}
+.hero h1 i{color:var(--tungsten)}
+@media (max-width:560px){.frame{aspect-ratio:auto;min-height:260px}}
+.genres{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:28px;font-family:var(--f-cjk);font-size:clamp(17px,2.4vw,24px);letter-spacing:.35em;color:var(--paper)}
+.genres span:nth-child(odd){color:var(--tungsten)}
+
+/* sections */
+section{padding-block:clamp(48px,8vw,96px);border-top:1px solid var(--line)}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--tungsten);margin:0 0 10px}
+h2{font-family:var(--f-cjk);font-weight:700;font-size:clamp(26px,4vw,40px);margin:0 0 28px;text-wrap:balance;letter-spacing:.06em}
+
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(24px,5vw,72px)}
+.about p{margin:0 0 1em;max-width:62ch;color:#d6d0c3}
+.formats{display:flex;flex-wrap:wrap;gap:8px;margin:1.2em 0}
+.formats span{border:1px solid var(--line);padding:2px 12px;font-size:14px;color:var(--paper)}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.svc{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 24px;display:flex;flex-direction:column;gap:6px;transition:background .25s}
+.svc:hover{background:var(--ink-2)}
+.svc .en{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.svc h3{font-family:var(--f-cjk);font-size:22px;margin:0;letter-spacing:.2em}
+@media (max-width:760px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.services{grid-template-columns:1fr}}
+
+/* works */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{font:500 14px var(--f-body);color:var(--muted);background:transparent;border:1px solid var(--line);padding:6px 16px;cursor:pointer;transition:all .2s}
+.filters button:hover{color:var(--paper);border-color:var(--muted)}
+.filters button[aria-pressed="true"]{background:var(--tungsten);border-color:var(--tungsten);color:var(--ink)}
+.group{margin-bottom:48px}
+.group h3{display:flex;align-items:baseline;gap:14px;font-family:var(--f-cjk);font-size:20px;letter-spacing:.2em;margin:0 0 4px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.group h3 small{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;color:var(--muted)}
+.reel{list-style:none;margin:0;padding:0}
+.reel a{display:grid;grid-template-columns:56px minmax(0,1fr) auto 28px;align-items:center;gap:16px;padding:18px 4px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .2s,padding .2s}
+.reel a:hover{background:var(--ink-2);padding-left:12px}
+.reel .no{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.reel .t{font-size:17px;font-weight:500;line-height:1.45;min-width:0}
+.reel .roles{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.reel .roles span{font-size:12px;border:1px solid var(--tungsten-dim);color:var(--tungsten);padding:1px 10px;white-space:nowrap}
+.reel .play{width:28px;height:28px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:all .2s}
+.reel .play svg{width:10px;height:10px;fill:var(--paper);margin-left:2px}
+.reel a:hover .play{background:var(--tungsten);border-color:var(--tungsten)}
+.reel a:hover .play svg{fill:var(--ink)}
+@media (max-width:640px){
+  .reel a{grid-template-columns:40px minmax(0,1fr) 28px;row-gap:6px}
+  .reel .roles{grid-column:2;grid-row:2;justify-content:flex-start}
+  .reel .play{grid-column:3;grid-row:1/3}
+}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.contact .big{font-family:var(--f-latin);font-size:clamp(36px,6vw,72px);line-height:1;margin:0 0 16px}
+.contact .big i{color:var(--tungsten)}
+.contact p{color:#d6d0c3;margin:0}
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.row:first-child{border-top:1px solid var(--line)}
+.row .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;color:var(--muted)}
+.row .v{font-size:16px;overflow-wrap:anywhere;user-select:all}
+.row .v a{text-decoration:none;border-bottom:1px solid var(--tungsten-dim)}
+.row button{font:500 12px var(--f-mono);letter-spacing:.08em;background:transparent;color:var(--tungsten);border:1px solid var(--tungsten-dim);padding:4px 10px;cursor:pointer}
+.row button:hover{background:var(--tungsten);color:var(--ink)}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:28px;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Li Shih Hsun</a>
+    <ul>
+      <li><a href="#about">簡介</a></li>
+      <li><a href="#services">服務</a></li>
+      <li><a href="#works">作品</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="frame">
+      <span class="tc"><b>●</b> REC&nbsp;&nbsp;2.39:1</span>
+      <p class="cjk">李室勳／安藤翔太</p>
+      <h1>Li Shih <i>Hsun</i></h1>
+    </div>
+    <div class="genres" aria-label="拍攝類型">
+      <span>廣告</span><span>MV</span><span>電影</span><span>節目</span><span>實境</span><span>形象</span>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <p class="label">About</p>
+      <h2>個人簡介</h2>
+    </div>
+    <div>
+      <p>2015年從本科生踏入業界公司，進入合瑪製作擔任攝影助理拍攝戲劇八點檔，在高壓的環境下使我快速成長，也在一年內勝任攝影大助一職。2017年開始外景節目拍攝，並以攝影助理角色轉換成攝影師，至今拍攝過各類型作品，如：</p>
+      <div class="formats">
+        <span>電影</span><span>廣告</span><span>MV</span><span>戲劇</span><span>節目</span><span>實境秀</span><span>紀錄片</span><span>微電影</span><span>EFP轉播</span><span>活動紀錄</span><span>婚禮紀錄</span><span>YT</span>
+      </div>
+      <p>除了攝影師，我也從事過監製、導演、燈光、收音，近期也積極累積導演作品，並接受各種挑戰，歡迎洽談合作。</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <p class="label">Service items</p>
+    <h2>服務項目</h2>
+    <div class="services">
+      <div class="svc"><span class="en">Producer</span><h3>監製</h3></div>
+      <div class="svc"><span class="en">Director</span><h3>導演</h3></div>
+      <div class="svc"><span class="en">Director of Photography</span><h3>攝影指導</h3></div>
+      <div class="svc"><span class="en">Location Sound</span><h3>現場錄音</h3></div>
+      <div class="svc"><span class="en">Color Grading</span><h3>調光調色</h3></div>
+      <div class="svc"><span class="en">Editing</span><h3>剪輯後製</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <p class="label">Works</p>
+    <h2>作品</h2>
+    <div class="filters" role="group" aria-label="篩選作品類別">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">全部</button>
+      <button type="button" id="f-mv" data-f="mv" aria-pressed="false">MV</button>
+      <button type="button" id="f-ad" data-f="ad" aria-pressed="false">廣告</button>
+      <button type="button" id="f-tv" data-f="tv" aria-pressed="false">節目</button>
+      <button type="button" id="f-web" data-f="web" aria-pressed="false">網路節目</button>
+    </div>
+    <div id="groups"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <p class="label">Contact</p>
+      <p class="big">Let's <i>shoot</i>.</p>
+      <p>案件洽詢、合作邀約，歡迎透過電話、LINE 或 IG 聯繫。</p>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="k">PHONE</span><span class="v" id="v-phone">+886 988 705 854</span><button type="button" data-copy="+886988705854">複製</button></div>
+      <div class="row"><span class="k">LINE</span><span class="v">0988705854</span><button type="button" data-copy="0988705854">複製</button></div>
+      <div class="row"><span class="k">IG</span><span class="v"><a href="https://www.instagram.com/0729_xiang/" target="_blank" rel="noopener">@0729_xiang</a></span><button type="button" data-copy="0729_xiang">複製</button></div>
+      <div class="row"><span class="k">EMAIL</span><span class="v">monster0988705854@gmail.com</span><button type="button" data-copy="monster0988705854@gmail.com">複製</button></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© 2026 Li Shih Hsun 李室勳</span><span>Cinematographer · Director</span></div>
+</footer>
+
+<script>
+const works = [
+  {id:"mv", name:"MV作品", en:"Music Video", items:[
+    ["KEEP MA SWAG - L1MBØIII","https://www.youtube.com/watch?v=_XW98CqLD1o",["導演"]],
+    ["GIL MONE & EyeballRay - 街頭文字D","https://www.youtube.com/watch?v=fyRa5gu_KEA",["攝影師"]],
+    ["吉恩 Drippy J - 斐濟水 FIJI Water","https://www.youtube.com/watch?v=32Wq3RM7Vwo",["攝影指導"]],
+    ["Project 88 - 這世界稱不上多好但是也沒有那麼糟","https://www.youtube.com/watch?v=KIjMJuKnoaM",["攝影指導"]],
+    ["Nanoak - 窒息","https://www.youtube.com/watch?v=HxPOmsVAII0",["攝影指導"]],
+    ["蘋果貓 Apple Cat - 轉呀轉","https://www.youtube.com/watch?v=xKe7DofAzBY",["攝影指導"]]
+  ]},
+  {id:"ad", name:"廣告作品", en:"Commercial", items:[
+    ["2022 綠佳利形象影片","https://www.youtube.com/watch?v=pHEzvbWwWaQ",["攝影指導"]],
+    ["TESLA X LIBERTY WORK 聯名車間廣告","https://www.youtube.com/watch?v=EFxRkQ9sb-0",["導演"]],
+    ["志明與花膠 形象廣告","https://www.youtube.com/watch?v=2iF4AT_6SxI",["攝影指導"]],
+    ["遠雄室內設計形象影片","https://www.youtube.com/watch?v=Hx5qZ1CDaAE",["導演","攝影指導"]],
+    ["安坑輕軌形象影片","https://www.youtube.com/watch?v=0FvasSaIw4I",["副導演"]]
+  ]},
+  {id:"tv", name:"節目作品", en:"Television", items:[
+    ["請世界吃桌 Have A Seat","https://www.youtube.com/watch?v=Tgkbo43yM48",["攝影師"]],
+    ["光開門就很忙了","https://www.youtube.com/watch?v=5Bbnkiaohl0",["攝影師"]],
+    ["全明星運動會","https://www.youtube.com/watch?v=mXb8WPCJupA",["攝影師"]],
+    ["胡來旅行社","https://www.youtube.com/watch?v=KWqdsjCfW3s&list=PLzgAweye8Ud6HPwn4fvQEM6Agu8oXk045",["攝影師"]],
+    ["騎吧！哈林小隊","https://www.youtube.com/watch?v=l2EXh68mBWE",["攝影師"]],
+    ["大學聲 YOUNG VOICE","https://www.youtube.com/watch?v=FbnOfQNdWr4",["攝影師"]]
+  ]},
+  {id:"web", name:"網路節目", en:"Online Series", items:[
+    ["酷的夢 中文怪物","https://www.youtube.com/watch?v=BcoIR7z9yxE",["攝影師"]],
+    ["酷的夢 涼山本事","https://www.youtube.com/watch?v=dz2fyyLadVA",["攝影師"]],
+    ["下面一位","https://www.youtube.com/watch?v=hAlOiwDcqek",["攝影師"]],
+    ["Fighting 時間 시간","https://www.youtube.com/watch?v=1UAh-NgYvw0",["攝影師"]],
+    ["杜太返香港之台北日又繽紛夜又繽紛","https://www.youtube.com/watch?v=oJrqiTO8jVY",["攝影師"]],
+    ["Linking368 Taiwan - 臺南北門","https://www.youtube.com/watch?v=pyq0-AVtr0Q",["攝影師"]]
+  ]}
+];
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const play = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M0 0L10 5L0 10Z"/></svg>';
+document.getElementById("groups").innerHTML = works.map(g => `
+  <div class="group" data-g="${g.id}">
+    <h3>${g.name}<small>${g.en} · ${g.items.length}</small></h3>
+    <ul class="reel">${g.items.map((w,i)=>`
+      <li><a href="${esc(w[1])}" target="_blank" rel="noopener" aria-label="在 YouTube 觀看 ${esc(w[0])}">
+        <span class="no">${g.id.toUpperCase()}-${String(i+1).padStart(2,"0")}</span>
+        <span class="t">${esc(w[0])}</span>
+        <span class="roles">${w[2].map(r=>`<span>${r}</span>`).join("")}</span>
+        <span class="play">${play}</span>
+      </a></li>`).join("")}
+    </ul>
+  </div>`).join("");
+
+const btns = document.querySelectorAll(".filters button");
+btns.forEach(b => b.addEventListener("click", () => {
+  const f = b.dataset.f;
+  btns.forEach(x => x.setAttribute("aria-pressed", x === b));
+  document.querySelectorAll(".group").forEach(g => g.hidden = !(f === "all" || g.dataset.g === f));
+}));
+
+document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => {
+  const done = () => { b.textContent = "已複製"; setTimeout(()=> b.textContent = "複製", 1600); };
+  try {
+    navigator.clipboard.writeText(b.dataset.copy).then(done).catch(()=>{ selectNext(b); });
+  } catch(e){ selectNext(b); }
+}));
+function selectNext(b){
+  const v = b.previousElementSibling; const r = document.createRange(); r.selectNodeContents(v);
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "已選取";
+  setTimeout(()=> b.textContent = "複製", 1600);
+}
+</script>
+</body>
+</html>
