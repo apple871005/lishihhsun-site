@@ -126,6 +126,11 @@ h2{font-family:var(--f-cjk);font-weight:700;font-size:clamp(26px,4vw,40px);margi
 .row .v a{text-decoration:none;border-bottom:1px solid var(--tungsten-dim)}
 .row button{font:500 12px var(--f-mono);letter-spacing:.08em;background:transparent;color:var(--tungsten);border:1px solid var(--tungsten-dim);padding:4px 10px;cursor:pointer}
 .row button:hover{background:var(--tungsten);color:var(--ink)}
+.portrait{position:relative;width:100%;max-width:320px;aspect-ratio:3/4;margin:0 0 32px;border:1px solid var(--line);background:var(--ink-2)}
+.portrait img{display:block;width:100%;height:100%;object-fit:cover}
+.portrait::before,.portrait::after{content:"";position:absolute;width:22px;height:22px;border:solid var(--tungsten)}
+.portrait::before{top:10px;left:10px;border-width:1px 0 0 1px}
+.portrait::after{bottom:10px;right:10px;border-width:0 1px 1px 0}
 @media (max-width:760px){.contact{grid-template-columns:1fr}}
 
 footer{border-top:1px solid var(--line);padding-block:28px;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
@@ -206,6 +211,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <section id="contact">
   <div class="wrap contact">
     <div>
+      <figure class="portrait"><img src="images/contact.jpg" alt="李室勳在拍攝現場，手持攝影機" width="720" height="960" loading="lazy"></figure>
       <p class="label">Contact</p>
       <p class="big">Let's <i>shoot</i>.</p>
       <p>案件洽詢、合作邀約，歡迎透過電話、LINE 或 IG 聯繫。</p>
