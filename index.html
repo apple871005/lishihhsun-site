@@ -77,12 +77,15 @@ h2{font-family:var(--f-cjk);font-weight:700;font-size:clamp(26px,4vw,40px);margi
 @media (max-width:760px){.about{grid-template-columns:1fr}}
 
 .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.svc{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 24px;display:flex;flex-direction:column;gap:6px;transition:background .25s}
+.svc{position:relative;overflow:hidden;min-height:200px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 24px;display:flex;flex-direction:column;gap:6px;transition:background .25s}
+.svc .art{position:absolute;right:-4px;bottom:-2px;height:60%;width:auto;max-width:72%;fill:none;stroke:var(--tungsten);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:.42;transition:opacity .3s,transform .4s}
+.svc:hover .art{opacity:.75;transform:translate(-4px,-4px)}
+.svc .en,.svc h3{position:relative}
 .svc:hover{background:var(--ink-2)}
 .svc .en{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
 .svc h3{font-family:var(--f-cjk);font-size:22px;margin:0;letter-spacing:.2em}
 @media (max-width:760px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:420px){.services{grid-template-columns:1fr}}
+@media (max-width:420px){.services{grid-template-columns:1fr}.svc{min-height:170px}}
 
 /* works */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
@@ -174,12 +177,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <p class="label">Service items</p>
     <h2>服務項目</h2>
     <div class="services">
-      <div class="svc"><span class="en">Producer</span><h3>監製</h3></div>
-      <div class="svc"><span class="en">Director</span><h3>導演</h3></div>
-      <div class="svc"><span class="en">Director of Photography</span><h3>攝影指導</h3></div>
-      <div class="svc"><span class="en">Location Sound</span><h3>現場錄音</h3></div>
-      <div class="svc"><span class="en">Color Grading</span><h3>調光調色</h3></div>
-      <div class="svc"><span class="en">Editing</span><h3>剪輯後製</h3></div>
+      <div class="svc"><span class="en">Producer</span><h3>監製</h3><svg class="art" viewBox="0 0 160 120" aria-hidden="true"><rect x="22" y="48" width="116" height="62" rx="2"/><path d="M22 48 L134 20 L138 34 L26 62"/><path d="M40 43.5 L50 58 M66 37 L76 52 M92 30.5 L102 45 M118 24 L128 38"/><path d="M34 74h40 M34 86h56 M34 98h30 M98 74h28 M98 86h28 M98 98h28"/></svg></div>
+      <div class="svc"><span class="en">Director</span><h3>導演</h3><svg class="art" viewBox="0 0 160 120" aria-hidden="true"><path d="M46 50 L46 18 L114 18 L114 50 M46 30 L114 30 M46 50 L114 50"/><path d="M40 62 L120 62 M50 62 L110 112 M110 62 L50 112 M44 112 L56 112 M104 112 L116 112"/><path d="M40 62 L40 50 M120 62 L120 50"/><path d="M60 40h40" stroke-dasharray="3 4"/></svg></div>
+      <div class="svc"><span class="en">Director of Photography</span><h3>攝影指導</h3><svg class="art" viewBox="0 0 160 120" aria-hidden="true"><rect x="48" y="44" width="56" height="44" rx="3"/><path d="M48 58 L30 58 L30 74 L48 74"/><path d="M30 52 L8 40 L8 92 L30 80 Z"/><path d="M60 44 L60 30 L96 30 L96 44 M56 30 L100 30"/><rect x="108" y="40" width="34" height="24" rx="2"/><path d="M104 52 L108 52"/><circle cx="84" cy="66" r="9"/><path d="M60 88 L56 108 M92 88 L96 108 M76 88 L76 110"/></svg></div>
+      <div class="svc"><span class="en">Location Sound</span><h3>現場錄音</h3><svg class="art" viewBox="0 0 160 120" aria-hidden="true"><ellipse cx="40" cy="34" rx="28" ry="11"/><path d="M20 28 L20 40 M30 24 L30 44 M40 23 L40 45 M50 24 L50 44 M60 28 L60 40"/><path d="M68 34 L152 34"/><rect x="58" y="62" width="88" height="48" rx="3"/><path d="M68 76h30 M68 84h22 M68 92h34 M68 100h16"/><circle cx="120" cy="80" r="7"/><circle cx="120" cy="98" r="5"/><path d="M134 72 L134 102 M140 78 L140 102"/></svg></div>
+      <div class="svc"><span class="en">Color Grading</span><h3>調光調色</h3><svg class="art" viewBox="0 0 160 120" aria-hidden="true"><circle cx="34" cy="56" r="22"/><circle cx="80" cy="56" r="22"/><circle cx="126" cy="56" r="22"/><path d="M34 46v20 M24 56h20 M80 46v20 M70 56h20 M126 46v20 M116 56h20"/><circle cx="40" cy="50" r="3"/><circle cx="76" cy="60" r="3"/><circle cx="130" cy="52" r="3"/><path d="M14 98h132 M14 108h132"/><path d="M50 94v8 M92 104v8 M118 94v8"/></svg></div>
+      <div class="svc"><span class="en">Editing</span><h3>剪輯後製</h3><svg class="art" viewBox="0 0 160 120" aria-hidden="true"><path d="M6 30h148 M6 56h148 M6 82h148 M6 108h148"/><rect x="10" y="36" width="44" height="14"/><rect x="58" y="36" width="30" height="14"/><rect x="92" y="36" width="56" height="14"/><rect x="22" y="62" width="62" height="14"/><rect x="100" y="62" width="34" height="14"/><path d="M10 95 q6 -8 12 0 t12 0 t12 0 t12 0 t12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/><path d="M96 14 L96 116 M90 14 L102 14 L96 22 Z"/></svg></div>
     </div>
   </div>
 </section>
