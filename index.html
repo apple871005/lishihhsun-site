@@ -9,6 +9,7 @@
 <meta property="og:description" content="廣告、MV、電影、節目、實境、形象影像作品集。">
 <meta property="og:url" content="https://lishihhsun.netlify.app/">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://lishihhsun.netlify.app/images/hero.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,8 +49,10 @@ nav ul a:hover{color:var(--tungsten)}
 /* hero */
 .hero{padding-block:clamp(40px,8vw,88px) clamp(32px,6vw,64px)}
 .frame{position:relative;aspect-ratio:2.39/1;max-width:100%;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,4vw,48px);background:
-  radial-gradient(120% 90% at 78% 20%,rgba(217,164,65,.16),transparent 55%),
-  linear-gradient(180deg,var(--ink-2),var(--ink))}
+  linear-gradient(90deg,rgba(13,20,19,.78) 0%,rgba(13,20,19,.35) 38%,transparent 62%),
+  linear-gradient(0deg,rgba(13,20,19,.7) 0%,transparent 45%),
+  url("images/hero.jpg") center/cover no-repeat,
+  var(--ink-2)}
 .frame::before,.frame::after{content:"";position:absolute;width:22px;height:22px;border:solid var(--tungsten)}
 .frame::before{top:10px;left:10px;border-width:1px 0 0 1px}
 .frame::after{bottom:10px;right:10px;border-width:0 1px 1px 0}
@@ -58,7 +61,7 @@ nav ul a:hover{color:var(--tungsten)}
 .hero .cjk{font-family:var(--f-cjk);font-size:clamp(15px,2vw,20px);color:var(--muted);letter-spacing:.2em;margin:0 0 4px}
 .hero h1{font-family:var(--f-latin);font-weight:400;font-size:clamp(40px,9vw,112px);line-height:.95;margin:0;letter-spacing:-.01em}
 .hero h1 i{color:var(--tungsten)}
-@media (max-width:560px){.frame{aspect-ratio:auto;min-height:260px}}
+@media (max-width:560px){.frame{aspect-ratio:auto;min-height:300px;background-position:0 0,0 0,68% center,0 0}}
 .genres{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:28px;font-family:var(--f-cjk);font-size:clamp(17px,2.4vw,24px);letter-spacing:.35em;color:var(--paper)}
 .genres span:nth-child(odd){color:var(--tungsten)}
 
