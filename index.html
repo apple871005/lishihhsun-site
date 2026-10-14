@@ -128,6 +128,20 @@ h2{font-family:var(--f-cjk);font-weight:700;font-size:clamp(26px,4vw,40px);margi
 .row button:hover{background:var(--tungsten);color:var(--ink)}
 @media (max-width:760px){.contact{grid-template-columns:1fr}}
 
+/* filmography */
+.arc-note{color:var(--muted);font-size:14px;margin:-12px 0 28px}
+.archive{display:flex;flex-direction:column;gap:44px}
+.arc h3{display:flex;align-items:baseline;gap:14px;font-family:var(--f-cjk);font-size:20px;letter-spacing:.2em;margin:0;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.arc h3 small{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;color:var(--muted)}
+.arc ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+.arc li>*{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.arc .t{font-size:15px;line-height:1.55;min-width:0;color:#d6d0c3}
+.arc .r{font-size:12px;color:var(--tungsten);white-space:nowrap;letter-spacing:.04em}
+.arc a .t::after{content:"▶";font-size:9px;color:var(--tungsten);margin-left:8px;vertical-align:2px}
+.arc a:hover .t{color:var(--paper)}
+.arc a:hover{background:var(--ink-2)}
+@media (max-width:760px){.arc ul{grid-template-columns:1fr}.arc .r{white-space:normal;text-align:right;max-width:9em}}
+
 /* clients */
 .clients{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .client{border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:150px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;transition:background .25s}
@@ -199,8 +213,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <section id="works">
   <div class="wrap">
-    <p class="label">Works</p>
-    <h2>作品</h2>
+    <p class="label">Selected Works</p>
+    <h2>精選作品</h2>
     <div class="filters" role="group" aria-label="篩選作品類別">
       <button type="button" id="f-all" data-f="all" aria-pressed="true">全部</button>
       <button type="button" id="f-mv" data-f="mv" aria-pressed="false">MV</button>
@@ -209,6 +223,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <button type="button" id="f-web" data-f="web" aria-pressed="false">網路節目</button>
     </div>
     <div id="groups"></div>
+  </div>
+</section>
+
+<section id="filmography">
+  <div class="wrap">
+    <p class="label">Filmography</p>
+    <h2>作品總覽</h2>
+    <p class="arc-note">共 58 部作品，標示 ▶ 的作品可點擊觀看。</p>
+    <div id="archive" class="archive"></div>
   </div>
 </section>
 
@@ -223,6 +246,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <div class="client"><b>志明與花膠</b><small>形象廣告</small></div>
       <div class="client"><b>遠雄室內設計</b><small>形象影片</small></div>
       <div class="client"><b>新北捷運局</b><small>安坑輕軌形象影片</small></div>
+      <div class="client"><b>舒潔 VIVA</b><small>廚房紙巾系列廣告</small></div>
+      <div class="client"><b>全家</b><small>私品茶廣告</small></div>
+      <div class="client"><b>亞東科大</b><small>各系所簡介</small></div>
     </div>
   </div>
 </section>
@@ -255,7 +281,7 @@ const works = [
     ["吉恩 Drippy J - 斐濟水 FIJI Water","https://www.youtube.com/watch?v=32Wq3RM7Vwo",["攝影指導"]],
     ["Project 88 - 這世界稱不上多好但是也沒有那麼糟","https://www.youtube.com/watch?v=KIjMJuKnoaM",["攝影指導"]],
     ["Nanoak - 窒息","https://www.youtube.com/watch?v=HxPOmsVAII0",["攝影指導"]],
-    ["蘋果貓 Apple Cat - 轉呀轉","https://www.youtube.com/watch?v=xKe7DofAzBY",["攝影指導"]]
+    ["蘋果貓 Apple Cat - 轉呀轉 Round a Round","https://www.youtube.com/watch?v=xKe7DofAzBY",["攝影指導"]]
   ]},
   {id:"ad", name:"廣告作品", en:"Commercial", items:[
     ["2022 綠佳利形象影片","https://www.youtube.com/watch?v=pHEzvbWwWaQ",["攝影指導"]],
@@ -298,6 +324,16 @@ document.getElementById("groups").innerHTML = works.map(g => `
         <span class="roles">${w[2].map(r=>`<span>${r}</span>`).join("")}</span>
       </a></li>`).join("")}
     </ul>
+  </div>`).join("");
+
+const archive = [{"id": "mv", "name": "MV作品", "en": "Music Video", "items": [["G4Z - ゲーランアイ基隆愛", ["攝影指導", "剪接師"], null], ["朱皮礁 - PRODUCER", ["導演", "攝影指導"], null], ["Karot 卡洛特 - oK bYe", ["導演", "攝影指導", "剪接師"], null], ["Nanoak - 窒息", ["攝影指導"], "https://www.youtube.com/watch?v=HxPOmsVAII0"], ["Project 88 - 這世界稱不上多好但是也沒有那麼糟", ["監製", "攝影指導", "剪接師"], "https://www.youtube.com/watch?v=KIjMJuKnoaM"], ["Project 88 - 推手", ["監製", "攝影指導"], null], ["Project 88 - 舊吉他", ["監製", "攝影指導", "剪接師"], null], ["GIL MONE & EyeballRay - 街頭文字D", ["攝影師"], "https://www.youtube.com/watch?v=fyRa5gu_KEA"], ["Pierre 痞爺 - LOVE IS LOVE (360 VR Music Video)", ["攝影指導"], null], ["吉恩 Drippy J - 斐濟水 FIJI Water", ["攝影指導"], "https://www.youtube.com/watch?v=32Wq3RM7Vwo"], ["DIN - MAMA SAY", ["攝影指導", "剪接師"], null], ["蘋果貓 Apple Cat - 轉呀轉 Round a Round", ["攝影指導"], "https://www.youtube.com/watch?v=xKe7DofAzBY"], ["KEEP MA SWAG - L1MBØIII", ["導演"], "https://www.youtube.com/watch?v=_XW98CqLD1o"]]}, {"id": "ad", "name": "廣告作品", "en": "Commercial", "items": [["2022 綠佳利形象影片", ["攝影指導"], "https://www.youtube.com/watch?v=pHEzvbWwWaQ"], ["TESLA X LIBERTY WORK 聯名車間廣告", ["導演"], "https://www.youtube.com/watch?v=EFxRkQ9sb-0"], ["志明與花膠 形象廣告", ["攝影指導"], "https://www.youtube.com/watch?v=2iF4AT_6SxI"], ["遠雄室內設計形象影片", ["導演", "攝影指導"], "https://www.youtube.com/watch?v=Hx5qZ1CDaAE"], ["新北捷運局 安坑輕軌形象影片", ["副導演"], "https://www.youtube.com/watch?v=0FvasSaIw4I"], ["【亞東科大】各系所簡介", ["攝影指導"], null], ["舒潔 Viva 到你家 我家的家常味年菜 1：好事成雙糖醋魚", ["成音師"], null], ["舒潔 Viva 到你家 我家的家常味年菜 5：金玉滿堂炸年糕", ["成音師"], null], ["舒潔 VIVA 廚房紙巾【潔淨 V 戰隊】空降危雞篇", ["成音師"], null], ["舒潔 VIVA 廚房紙巾【潔淨 V 戰隊】殺柚之戰篇", ["成音師"], null], ["舒潔 VIVA 廚房紙巾【潔淨 V 戰隊】粽橫天下篇", ["成音師"], null], ["全家私品茶 椪柑百香青茶", ["成音師"], null]]}, {"id": "tv", "name": "節目作品", "en": "Television", "items": [["請世界吃桌 Have A Seat", ["攝影師"], "https://www.youtube.com/watch?v=Tgkbo43yM48"], ["全明星運動會 第一季", ["攝影師"], "https://www.youtube.com/watch?v=mXb8WPCJupA"], ["全明星運動會 第四季", ["攝影師"], null], ["胡來旅行社", ["攝影師"], "https://www.youtube.com/watch?v=KWqdsjCfW3s&list=PLzgAweye8Ud6HPwn4fvQEM6Agu8oXk045"], ["光開門就很忙了", ["攝影師"], "https://www.youtube.com/watch?v=5Bbnkiaohl0"], ["大學聲 YOUNG VOICE", ["攝影師"], "https://www.youtube.com/watch?v=FbnOfQNdWr4"], ["原視 原力 biyax 第一季", ["攝影師"], null], ["台灣燙 TV 公視+", ["攝影師"], null], ["9417 愛建玩 台中站", ["攝影師"], null], ["國興衛視 ぜったい台湾", ["攝影師"], null], ["TLC 旅遊生活 - 香港新滋味 第一季", ["攝影師"], null], ["MUSIC MAKER 音樂主理人", ["攝影師"], null], ["龍王少年", ["攝影師"], null]]}, {"id": "re", "name": "實境作品", "en": "Reality", "items": [["騎吧！哈林小隊（第 59 屆金鐘獎獲獎）", ["攝影師"], "https://www.youtube.com/watch?v=l2EXh68mBWE"], ["全明星出發吧", ["攝影師"], null], ["來吧！營業中 2 星之沙龍", ["攝影師"], null], ["炸裂吧女孩", ["攝影師"], null], ["成仁高中偵探社", ["攝影師"], null], ["成仁高中偵探社 第二季", ["攝影師"], null], ["TOP DOG 回家", ["攝影師"], null], ["最強的身體", ["攝影師"], null], ["我的明星村長", ["攝影師"], null]]}, {"id": "web", "name": "網路節目", "en": "Online Series", "items": [["酷的夢 中文怪物", ["攝影師"], "https://www.youtube.com/watch?v=BcoIR7z9yxE"], ["酷的夢 涼山本事", ["攝影師"], "https://www.youtube.com/watch?v=dz2fyyLadVA"], ["下面一位", ["攝影師"], "https://www.youtube.com/watch?v=hAlOiwDcqek"], ["Fighting 時間 시간", ["攝影師"], "https://www.youtube.com/watch?v=1UAh-NgYvw0"], ["杜太返香港之台北日又繽紛夜又繽紛", ["攝影師"], "https://www.youtube.com/watch?v=oJrqiTO8jVY"], ["Linking368 Taiwan - 臺南北門", ["攝影師"], "https://www.youtube.com/watch?v=pyq0-AVtr0Q"], ["烏鴉 Doka TV - 惡棍億級別墅泳池趴", ["攝影指導"], null], ["泛科學 PanSci - 地震也是拓銷商機", ["攝影師"], null], ["INTERMISSION - DJ Dennis", ["攝影師"], null], ["陳樂樂 - 台中一日遊 台中必吃／台中必玩", ["攝影師"], null], ["Kevin 想得美 - 彩妝小白也會的珊瑚橘妝容", ["攝影指導"], null]]}];
+document.getElementById("archive").innerHTML = archive.map(g => `
+  <div class="arc">
+    <h3>${g.name}<small>${g.en} · ${g.items.length}</small></h3>
+    <ul>${g.items.map(w => {
+      const inner = `<span class="t">${esc(w[0])}</span><span class="r">${w[1].join("・")}</span>`;
+      return w[2] ? `<li><a href="${esc(w[2])}" target="_blank" rel="noopener">${inner}</a></li>` : `<li><div>${inner}</div></li>`;
+    }).join("")}</ul>
   </div>`).join("");
 
 const btns = document.querySelectorAll(".filters button");
