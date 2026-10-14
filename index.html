@@ -128,6 +128,15 @@ h2{font-family:var(--f-cjk);font-weight:700;font-size:clamp(26px,4vw,40px);margi
 .row button:hover{background:var(--tungsten);color:var(--ink)}
 @media (max-width:760px){.contact{grid-template-columns:1fr}}
 
+/* clients */
+.clients{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.client{border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:150px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;transition:background .25s}
+.client:hover{background:var(--ink-2)}
+.client b{font-family:"Bodoni Moda","Noto Serif TC","Songti TC",Georgia,serif;font-weight:600;font-size:clamp(20px,2.6vw,28px);letter-spacing:.12em;color:#c9c3b6;transition:color .25s;line-height:1.3}
+.client:hover b{color:var(--paper)}
+.client small{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+@media (max-width:760px){.clients{grid-template-columns:repeat(2,minmax(0,1fr))}.client{min-height:120px;padding:18px 12px}}
+
 footer{border-top:1px solid var(--line);padding-block:28px;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </style>
@@ -200,6 +209,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <button type="button" id="f-web" data-f="web" aria-pressed="false">網路節目</button>
     </div>
     <div id="groups"></div>
+  </div>
+</section>
+
+<section id="clients">
+  <div class="wrap">
+    <p class="label">Clients</p>
+    <h2>合作品牌</h2>
+    <div class="clients">
+      <div class="client"><b>TESLA</b><small>聯名車間廣告</small></div>
+      <div class="client"><b>LIBERTY WORK</b><small>聯名車間廣告</small></div>
+      <div class="client"><b>綠佳利</b><small>形象影片</small></div>
+      <div class="client"><b>志明與花膠</b><small>形象廣告</small></div>
+      <div class="client"><b>遠雄室內設計</b><small>形象影片</small></div>
+      <div class="client"><b>新北捷運局</b><small>安坑輕軌形象影片</small></div>
+    </div>
   </div>
 </section>
 
